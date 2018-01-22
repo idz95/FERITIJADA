@@ -10,14 +10,49 @@
 	
 	<div id="page">
 	<?php include_once "template/izbornik.php"; ?>
+	<div class="container-wrap">
 	
-	<?php include_once "template/prijava.php"; ?>
+		<div class="row animate-box">
+		<div id="log-in-div">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<form class="log-in-form" action="autoriziraj.php" method="post" style="alignment-adjust: center;">
+			  <h4 class="text-center">Prijava za suce</h4>
+			  <label>Nadimak ili email
+			    <input type="email" name="email" placeholder="sudac@hns.hr" value="<?php if(isset($_GET["email"])){
+				    	echo $_GET["email"];
+				    }else{
+				    	if($dev){
+				    		echo "sudac@hns.hr";
+				    	}
+				    }
+					
+					
+					 ?>">
+			  </label>
+			  <label>Lozinka
+			    <input type="password" name="lozinka" placeholder="sudac" value="<?php echo $dev ? "sudac" : "";  ?>">
+			  </label>
+			  
+			  <p><input type="submit" class="button expanded" value="Prijava"></input></p>
+			  <?php if(isset($_GET["neuspjelo"])){
+				  	echo "Netočan email ili lozinka";
+				  } ?>
+			  
+			</form>
+		</div>
+	</div>
+	
+</div>
+</div>
+
+	
 
 	
 		
 
 		
-	</div><!-- END container-wrap -->
+	<!-- END container-wrap -->
 
 	<?php include_once "template/podnozje.php"; ?>
 	</div>

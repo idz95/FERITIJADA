@@ -1,5 +1,17 @@
 
 
+div#page{
+	background-color:white;
+}
+
+.container-wrap .log-in-form{
+	
+}
+
+div.container-wrap{
+	
+	background-color:#F5F5F5;
+}
 
 @font-face {
   font-family: 'icomoon';
@@ -98,7 +110,6 @@ h1, h2, h3, h4, h5, h6, figure {
     width: 100%;
   }
 }
-
 .fh5co-nav {
   margin: 5em 0 0 0;
 }

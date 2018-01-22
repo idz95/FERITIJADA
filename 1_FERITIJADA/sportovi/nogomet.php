@@ -1,5 +1,5 @@
 <?php include_once '../konfiguracija.php'; 
-provjeraOvlasti();
+
 ?>
 
 
@@ -18,8 +18,8 @@ provjeraOvlasti();
 	<div class="container-wrap">
 
 		<?php 
-			
-				print_r($_SESSION);
+				
+				echo "NOGOMET REZULTATI";
 				?>
 		
 			

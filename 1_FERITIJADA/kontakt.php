@@ -9,28 +9,9 @@
 	<div class="fh5co-loader"></div>
 	
 	<div id="page">
-		<?php include_once 'template/zaglavlje.php'; ?>
+
 	<?php include_once "template/izbornik.php"; ?>
 	<div class="container-wrap">
-		<aside id="fh5co-hero">
-			<div class="flexslider">
-				<ul class="slides">
-			   	<li style="background-image: url(images/marac.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container-fluids">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg">
-				   				<div class="slider-text-inner text-center">
-				   					
-									<h2 style="font-size: 70px; color: white; font-style: bold;  ">Kontaktiraj nas!</h2>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>		   	
-			  	</ul>
-		  	</div>
-		</aside>		
 		<div id="fh5co-contact">
 			<div class="row animate-box">
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">

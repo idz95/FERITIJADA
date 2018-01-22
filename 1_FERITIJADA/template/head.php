@@ -35,22 +35,24 @@ Facebook: 		https://www.facebook.com/fh5co
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 
 <!-- Animate.css -->
-<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="<?php echo $putanjaAPP; ?>css/animate.css">
 <!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="<?php echo $putanjaAPP; ?>css/icomoon.css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="<?php echo $putanjaAPP; ?>css/bootstrap.css">
 
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="<?php echo $putanjaAPP; ?>css/magnific-popup.css">
 
 <!-- Flexslider  -->
-<link rel="stylesheet" href="css/flexslider.css">
+<link rel="stylesheet" href="<?php echo $putanjaAPP; ?>css/flexslider.css">
 
 <!-- Theme style  -->
-<link rel="stylesheet" href="css/style.css">
 
-<link rel="stylesheet" href="css/foundation.css">
+
+<link rel="stylesheet" href="<?php echo $putanjaAPP; ?>css/foundation.css">
+
+<link rel="stylesheet" href="<?php echo $putanjaAPP; ?>css/style.css">
 
 
 
