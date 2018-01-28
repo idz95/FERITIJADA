@@ -37,7 +37,7 @@
 					</a>
 				</div>
 				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/nogomet.php" class="work" style="background-image: url(images/rukomet1.jpg);">
+					<a href="sportovi/rukomet.php" class="work" style="background-image: url(images/rukomet1.jpg);">
 						<div class="desc">
 							<h3>RUKOMET</h3>
 							<span>Klikni za rezultate!</span>
@@ -45,7 +45,7 @@
 					</a>
 				</div>
 				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/nogomet.php" class="work" style="background-image: url(images/kosarka.jpg);">
+					<a href="sportovi/kosarka.php" class="work" style="background-image: url(images/kosarka.jpg);">
 						<div class="desc">
 							<h3>KOŠARKA</h3>
 							<span>Klikni za rezultate!</span>
@@ -61,7 +61,7 @@
 					</a>
 				</div>
 				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/nogomet.php" class="work" style="background-image: url(images/kosarka.jpg);">
+					<a href="sportovi/kosarka.php" class="work" style="background-image: url(images/kosarka.jpg);">
 						<div class="desc">
 							<h3>KOŠARKA</h3>
 							<span>Klikni za rezultate!</span>

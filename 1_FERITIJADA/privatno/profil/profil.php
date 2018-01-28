@@ -26,20 +26,30 @@ provjeraOvlasti();
 			</div>
 			<div class="row">
 				<div class="col-md-4 text-center animate-box">
+					<div class="list-group">
+						<a href="#" class="list-group-item active">Moj profil!</a>
+								<a href="utakmice.php" class="list-group-item">Moje utakmice</a>
+								<a href="racun.php" class="list-group-item">Postavke računa</a>
+								
+								
+					</div>
+				</div>
+				
+				<div class="col-md-4 text-center animate-box">
+					<h4>Ivan Bebek</h4>
+					<h4>Sport: Nogomet</h4>
+					<h4>Utakmica suđeno: 12</h4>
+					<h4>Fakultet: Ferit</h4>
+				</div>
+				
+				<div class="col-md-4 text-center animate-box">
 					<a class="work" style="background-image: url(../../images/sudac.jpg);">
 						<div class="desc">
-							<h3>IME SUCA</h3>
+						<h4>Ivan Bebek</h4>
 						</div>
 					</a>
 				</div>
-				<div class="col-md-4 text-center animate-box">
-					<?php 
-					echo "SUDAC IME PREZIME PODACI"; ?>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<?php 
-					echo "SUDAC IME PREZIME PODACI"; ?>
-				</div>
+				
 				
 			</div>
 		</div>

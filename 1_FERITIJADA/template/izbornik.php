@@ -11,7 +11,7 @@
 							stavkaIzbornika($putanjaAPP . "index.php", "Naslovnica");
  							?>
  						
-      							<?php stavkaIzbornika($putanjaAPP."kontakt.php", "Kontakt"); ?>
+      							
       							
       							
       							
@@ -28,6 +28,9 @@
 											?>
 										</ul>
 									</li>
+									<?php stavkaIzbornika($putanjaAPP."kontakt.php", "Kontakt"); ?>
+									
+									
 									<?php if(isset($_SESSION[$appID."autoriziran"])): ?>
 									<?php stavkaIzbornika($putanjaAPP . "privatno/nadzornaPloca.php", "Nadzorna ploča");?>
 									<li class="has-dropdown">
@@ -35,8 +38,8 @@
 										<ul class="dropdown">
 											<?php 
 												stavkaIzbornika($putanjaAPP . "privatno/profil/profil.php", "Profil"); 
-												stavkaIzbornika($putanjaAPP . "privatno/profil/profil.php", "Moje utakmice"); 
-												stavkaIzbornika($putanjaAPP . "privatno/profil/profil.php", "Korisnički račun"); 
+												stavkaIzbornika($putanjaAPP . "privatno/profil/utakmice.php", "Moje utakmice"); 
+												stavkaIzbornika($putanjaAPP . "privatno/profil/racun.php", "Korisnički račun"); 
 												 
 						
 											?>
