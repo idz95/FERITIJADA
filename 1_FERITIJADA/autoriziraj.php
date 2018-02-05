@@ -3,11 +3,18 @@
 if(!isset($_POST["email"]) || !isset($_POST["lozinka"])){
 	exit;
 }
-//ovdje će doći spajanje na bazu
-if($_POST["email"]==="sudac@hns.hr" && $_POST["lozinka"]==="sudac"){
-	include_once 'konfiguracija.php';
-	$_SESSION[$appID."autoriziran"]="SUDAC HR";
-	header("location: privatno/profil/profil.php");
-}else{
-	header("location: prijava.php?neuspjelo&email=" . $_POST["email"]);
+
+include_once 'konfiguracija.php';
+$izraz=$veza->prepare("select * from operater where email=:email and lozinka=md5(:lozinka)");
+$izraz->execute($_POST);
+$o = $izraz->fetch(PDO::FETCH_OBJ);
+
+
+if($o==null){
+	header("location: login.php?neuspjelo&email=" . $_POST["email"]);
+	exit;
 }
+
+
+$_SESSION[$appID."autoriziran"]=$o;
+header("location: privatno/nadzornaPloca.php");

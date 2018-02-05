@@ -25,20 +25,26 @@ provjeraOvlasti();
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 text-center animate-box">
-					<div class="list-group">
-						<a href="#" class="list-group-item active">Dodavanje komponenti! </a>
+						<div class="col-md-4 text-center animate-box">
+							<div class="list-group">
+								<a href="#" class="list-group-item active">Dodavanje komponenti! </a>
 								<a href="dodavanjeUtakmice.php" class="list-group-item">Sportska utakmica</a>
 								<a href="dodavanjeSuca.php" class="list-group-item">Dodavanje suca.</a>
 								<a href="dodavanjeFakulteta.php" class="list-group-item">Dodavanje Frakulteta</a>
-								
-								</div>
+
+							</div>
+							
+							<div class="list-group">
+							<a href="#" class="list-group-item active">Upravljanje osobama! </a>
+							<a href="administracija.php" class="list-group-item">Administracija</a>
+							<a href="suci.php" class="list-group-item">Suci</a>
+
+						</div>
+
+						</div>
+
+					</div>
 			
-				</div>
-				
-					
-				</div>
-				
 				
 				
 			</div>

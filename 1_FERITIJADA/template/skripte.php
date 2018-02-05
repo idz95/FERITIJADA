@@ -16,6 +16,10 @@
 <script src="<?php echo $putanjaAPP; ?>js/magnific-popup-options.js"></script>
 <!-- Counters -->
 <script src="<?php echo $putanjaAPP; ?>js/jquery.countTo.js"></script>
+<script src="<?php echo $putanjaAPP; ?>js/fontawesome-all.min.js"></script>
 <!-- Main -->
 <script src="<?php echo $putanjaAPP; ?>js/main.js"></script>
+
+
+
 

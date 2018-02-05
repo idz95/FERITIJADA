@@ -31,7 +31,7 @@
 					 ?>">
 			  </label>
 			  <label>Lozinka
-			    <input type="password" name="lozinka" placeholder="sudac" value="<?php echo $dev ? "sudac" : "";  ?>">
+			    <input type="password" name="lozinka" placeholder="sudac" value="<?php echo $dev ? "e" : "";  ?>">
 			  </label>
 			  
 			  <p><input type="submit" class="button expanded" value="Prijava"></input></p>
