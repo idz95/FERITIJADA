@@ -32,7 +32,12 @@
 									
 									
 									<?php if(isset($_SESSION[$appID."autoriziran"])): ?>
-									<?php stavkaIzbornika($putanjaAPP . "privatno/nadzornaPloca.php", "Nadzorna ploča");?>
+										
+									<?php 
+									if($_SESSION[$appID."autoriziran"]->uloga==="admin"){
+										stavkaIzbornika($putanjaAPP . "privatno/nadzornaPloca.php", "Nadzorna ploča"); }
+										
+									?>
 									<li class="has-dropdown">
 										<a href="<?php echo $putanjaAPP; ?>privatno/profil/profil.php">Moj profil</a>
 										<ul class="dropdown">
@@ -55,7 +60,11 @@
 	  		
 							<li><a href="<?php echo $putanjaAPP; ?>prijava.php" >Prijava</a>
 							<?php else: ?>
-							<li><a href="<?php echo $putanjaAPP; ?>logout.php">Odjava</a>
+							<li><a href="<?php echo $putanjaAPP; ?>logout.php">Odjava <?php 
+	  		
+				  			echo $_SESSION[$appID."autoriziran"]->ime;
+				  			
+				  			?></a>
 							<?php endif;?>	
 							</li>
 						</ul>

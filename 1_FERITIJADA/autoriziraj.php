@@ -17,4 +17,8 @@ if($o==null){
 
 
 $_SESSION[$appID."autoriziran"]=$o;
-header("location: privatno/nadzornaPloca.php");
+if($_SESSION[$appID."autoriziran"]->uloga==="admin"){
+	header("location: privatno/nadzornaPloca.php"); }
+else {
+	header("location: privatno/profil/profil.php"); }
+	

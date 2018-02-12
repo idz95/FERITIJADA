@@ -13,6 +13,7 @@ if($_SERVER["SERVER_NAME"]==="localhost"){
 }
 $appID="FERITIJADA";
 $dev=true;
+$brojRezultataPoStranici=10;
 
 
 

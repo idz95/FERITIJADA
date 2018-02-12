@@ -38,6 +38,7 @@ provjeraOvlasti();
 							<a href="#" class="list-group-item active">Upravljanje osobama! </a>
 							<a href="administracija.php" class="list-group-item">Administracija</a>
 							<a href="suci.php" class="list-group-item">Suci</a>
+							<a href="fakulteti.php" class="list-group-item">Fakulteti</a>
 
 						</div>
 

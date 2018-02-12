@@ -17,32 +17,16 @@
 	<?php include_once "../template/izbornik.php"; ?>
 	<div class="container-wrap">
 	
-		<div id="fh5co-work">
-		<h3>Svi suci FERITIJADE</h3>
-		
-		<form method="get">
-					<input type="text" name="uvjet" 
-					placeholder="uvjet pretraživanja (ime, prezime, email ili lozinka)"
-					value="<?php echo isset($_GET["uvjet"]) ? $_GET["uvjet"] : "" ?>" />
-				</form>
-				<?php
-					
-					$uvjet = "%" . (isset($_GET["uvjet"]) ? $_GET["uvjet"] : "") . "%";
-					
-					$izraz = $veza->prepare("select count(*) from sudac
-					where concat(ime,prezime,email) like :uvjet");
-					$izraz->execute(array("uvjet"=>$uvjet));
-				
-				  ?>
-		
+			<div id="fh5co-work">
+		<h3>Fakulteti</h3>
 		<table class="table">
 						<thead>
 							<tr>
 								
-								<th scope="col">Ime i prezime</th>
-								<th scope="col">Email</th>
-								<th scope="col">Sport</th>
-								<th scope="col">Kontakt</th>
+								<th scope="col">Naziv</th>
+								<th scope="col">Grad</th>
+								<th scope="col">Država</th>
+							
 
 
 							</tr>
@@ -50,17 +34,17 @@
 						<tbody>
 							
 						<?php 
-						$izraz = $veza->prepare("select * from sudac order by prezime, ime;");
+						$izraz = $veza->prepare("select * from fakultet order by grad, drzava;");
 						$izraz->execute();
 						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
 						foreach ($rezultati as $red):
 						?>
 							
 							<tr>
-								<td><?php echo $red->ime . " " . $red->prezime; ?></td>
-								<td><?php echo $red->email; ?></td>
-								<td><?php echo $red->sport; ?></td>
-								<td><?php echo $red->mobitel; ?></td>
+								<td><?php echo $red->naziv; ?></td>
+								<td><?php echo $red->grad; ?></td>
+								<td><?php echo $red->drzava; ?></td>
+							
 								
 								<td>
 									<a href="#"><i class="far fa-edit fa-2x"></i></a>
