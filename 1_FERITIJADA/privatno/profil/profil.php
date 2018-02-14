@@ -36,16 +36,16 @@ provjeraOvlasti();
 				</div>
 				
 				<div class="col-md-4 text-center animate-box">
-					<h4>Ivan Bebek</h4>
-					<h4>Sport: Nogomet</h4>
+					<h4>Uloga: <?php echo $_SESSION[$appID."autoriziran"]->uloga; ?></h4>
+					<h4><?php echo $_SESSION[$appID."autoriziran"]->ime . " " . $_SESSION[$appID."autoriziran"]->prezime; ?></h4>
+					<h4> <?php echo $_SESSION[$appID."autoriziran"]->email; ?></h4>
 					<h4>Utakmica suđeno: 12</h4>
-					<h4>Fakultet: Ferit</h4>
 				</div>
 				
 				<div class="col-md-4 text-center animate-box">
 					<a class="work" style="background-image: url(../../images/sudac.jpg);">
 						<div class="desc">
-						<h4>Ivan Bebek</h4>
+						<h4><?php echo $_SESSION[$appID."autoriziran"]->ime . " " . $_SESSION[$appID."autoriziran"]->prezime; ?></h4>
 						</div>
 					</a>
 				</div>

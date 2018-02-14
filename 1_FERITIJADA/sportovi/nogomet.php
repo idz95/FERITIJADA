@@ -27,6 +27,7 @@
 								<th scope="col">Gost</th>
 								<th scope="col">Datum i vrijeme</th>
 								<th scope="col">Mjesto</th>
+							
 								<th scope="col">Sudac</th>
 								<th scope="col">Rezultat</th>
 
@@ -35,6 +36,7 @@
 						<tbody>
 							
 						<?php 
+						
 						$izraz = $veza->prepare("select * from utakmica where sport=1");
 						$izraz->execute();
 						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);

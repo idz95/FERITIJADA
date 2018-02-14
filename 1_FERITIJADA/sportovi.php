@@ -6,7 +6,8 @@
 	</head>
 	<body>
 		
-	<div class="fh5co-loader"></div>
+	<div class="fh5co-loader">
+	</div>
 	
 	<div id="page">
 	<?php include_once "template/izbornik.php"; ?>
@@ -19,55 +20,27 @@
 					<p>Klikom na sliku otvarate rezultate svih sportova koji su završeni, te svih sljedećih utakmica.</p>
 				</div>
 			</div>
+			
+			<?php 
+							
+						$izraz = $veza->prepare("select * from sport order by naziv");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+			
 			<div class="row">
-				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/nogomet.php" class="work" style="background-image: url(images/nogomet.jpg);">
+				<div class="col-md-4 text-center animate-box" style="alignment-adjust: central;">
+					<a href="sportovi/<?php echo $red->naziv  ?>.php" class="work" style="background-image: url(images/nogomet.jpg);">
 						<div class="desc">
-							<h3>NOGOMET</h3>
+							<h3><?php echo $red->naziv; ?></h3>
 							<span>Klikni za rezultate!</span>
 						</div>
 					</a>
 				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/odbojka.php" class="work" style="background-image: url(images/odbojka.jpg);">
-						<div class="desc">
-							<h3>ODBOJKA</h3>
-							<span>Klikni za rezultate!</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/rukomet.php" class="work" style="background-image: url(images/rukomet1.jpg);">
-						<div class="desc">
-							<h3>RUKOMET</h3>
-							<span>Klikni za rezultate!</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/kosarka.php" class="work" style="background-image: url(images/kosarka.jpg);">
-						<div class="desc">
-							<h3>KOŠARKA</h3>
-							<span>Klikni za rezultate!</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/nogomet.php" class="work" style="background-image: url(images/nogomet.jpg);">
-						<div class="desc">
-							<h3>NOGOMET</h3>
-							<span>Klikni za rezultate!</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/kosarka.php" class="work" style="background-image: url(images/kosarka.jpg);">
-						<div class="desc">
-							<h3>KOŠARKA</h3>
-							<span>Klikni za rezultate!</span>
-						</div>
-					</a>
-				</div>
+				
+				 <?php endforeach; ?>
+				
 			</div>
 		</div>
 		

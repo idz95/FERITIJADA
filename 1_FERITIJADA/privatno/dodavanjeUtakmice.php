@@ -25,21 +25,36 @@ provjeraOvlasti();
     
     <div class="form-group col-md-4">
       <label for="inputState">Sport</label>
+         
+        
       <select id="inputState" class="form-control">
         <option selected>Odaberi sport...</option>
-        <option>Nogomet</option>
-         <option>Rukomet</option>
-          <option>Košarka</option>
+    			 <?php 
+							
+						$izraz = $veza->prepare("select * from sport order by naziv");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+        <option><?php echo $red->naziv; ?></option>
+			<?php endforeach; ?>
       </select>
+      
     </div>
     <div class="form-group col-md-4">
      	
      	<label for="inputState">Ekipa 1</label>
       <select id="inputState" class="form-control">
         <option selected>Odaberi ekipu</option>
-        <option>FERIT</option>
-         <option>FER</option>
-          <option>RITEH</option>
+        <?php 
+							
+						$izraz = $veza->prepare("select * from fakultet order by naziv");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+        <option><?php echo $red->naziv; ?></option>
+         <?php endforeach; ?>
       </select>
      </div>
      <div class="form-group col-md-4">
@@ -47,9 +62,15 @@ provjeraOvlasti();
      	<label for="inputState">Ekipa 2</label>
       <select id="inputState" class="form-control">
         <option selected>Odaberi ekipu</option>
-        <option>FERIT</option>
-         <option>FER</option>
-          <option>RITEH</option>
+           <?php 
+							
+						$izraz = $veza->prepare("select * from fakultet order by naziv");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+        <option><?php echo $red->naziv; ?></option>
+         <?php endforeach; ?>
       </select>
      </div>
      
@@ -70,9 +91,15 @@ provjeraOvlasti();
     	<label for="inputState">Sudac</label>
       <select id="inputState" class="form-control">
         <option selected>Odaberi suca...</option>
-        <option>Miro Mirić</option>
-         <option>Matko Marić</option>
-          <option>Kemal Ibro</option>
+           <?php 
+							
+						$izraz = $veza->prepare("select * from sudac order by prezime, ime");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+        <option><?php echo $red->ime . " " . $red->prezime; ?></option>
+         <?php endforeach; ?>
       </select>
     </div>
      <div class="form-group col-md-4">

@@ -10,6 +10,7 @@ email varchar(50) not null,
 lozinka char(32) not null,
 ime varchar(50) not null,
 prezime varchar(50) not null,
+slika longblob not null,
 uloga varchar(20) not null
 );
 
@@ -80,12 +81,21 @@ insert into sport(sifra,naziv,opis) values
 (null,'Odbojka','Odbojka'),
 (null,'Veslanje','Veslači');
 
-insert into operater (email,lozinka,ime,prezime,uloga) values 
-('admin@hns.hr', md5('e'),'Admin','admin','admin'),
-('sudac@hns.hr', md5('e'),'Miro','Kuzma','oper');
+insert into operater (email,lozinka,ime,prezime,uloga,slika) values 
+('admin@hns.hr', md5('e'),'Admin','admin','admin', 'C:\xampp\htdocs\1_FERITIJADA\images\miro.jpg'),
+('sudac@hns.hr', md5('e'),'Miro','Kuzma','oper', 'C:\xampp\htdocs\1_FERITIJADA\images\miro.jpg');
+
 
 
 insert into sudac(sifra,ime,prezime, email, lozinka, mobitel, sport) values
+(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet'),
+(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet'),
+(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka'),
+(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet'),
+(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet'),
+(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet'),
+(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka'),
+(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet'),
 (null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet'),
 (null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet'),
 (null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka'),
@@ -115,6 +125,14 @@ insert into fakultet(sifra, naziv, grad, drzava, domacin, gost) values
 	(null, 'FERIT', 'Osijek', 'Hrvatska', 1, 2),
 	(null, 'FER', 'Zagreb', 'Hrvatska', 1, 2),
 	(null, 'FTN', 'Novi Sad', 'Srbija', 1, 2),
+	(null, 'GFOS', 'Osijek', 'Hrvatska', 1, 2),
+	(null, 'PRAVOS', 'Osijek', 'Hrvatska', 1, 2),
+	(null, 'PMFZG', 'Zagreb', 'Hrvatska', 1, 2),
+	(null, 'TVZ', 'Zagreb', 'Hrvatska', 1, 2),
+	(null, 'SFSB', 'Slavonski Brod', 'Hrvatska', 1, 2),
+	(null, 'PMFOS', 'Osijek', 'Hrvatska', 1, 2),
+	(null, 'PMFRI', 'Rijeka', 'Hrvatska', 1, 2),
+	(null, 'ETFBG', 'Beograd', 'Srbija', 1, 2),
 	(null, 'FOI', 'Varaždin', 'Hrvatska', 1, 2)
 	;
 

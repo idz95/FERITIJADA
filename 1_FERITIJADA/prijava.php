@@ -23,7 +23,7 @@
 				    	echo $_GET["email"];
 				    }else{
 				    	if($dev){
-				    		echo "sudac@hns.hr";
+				    		echo "admin@hns.hr";
 				    	}
 				    }
 					

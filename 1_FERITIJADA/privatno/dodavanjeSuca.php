@@ -39,10 +39,15 @@ provjeraOvlasti();
      	<label for="inputState">Sport</label>
       <select id="inputState" class="form-control">
         <option selected>Odaberi sport</option>
-        <option>Nogomet</option>
-         <option>Rukomet</option>
-          <option>Košarka</option>
-          <option>Odbojka</option>
+           <?php 
+							
+						$izraz = $veza->prepare("select * from sport order by naziv");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+        <option><?php echo $red->naziv; ?></option>
+         <?php endforeach; ?>
       </select>
      </div>
      
@@ -50,9 +55,15 @@ provjeraOvlasti();
     	<label for="inputState">Fakultet</label>
       <select id="inputState" class="form-control">
         <option selected>Odaberi Fakultet</option>
-        <option>FERIT</option>
-         <option>FER</option>
-          <option>RITEH</option>
+           <?php 
+							
+						$izraz = $veza->prepare("select * from fakultet order by naziv");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+        <option><?php echo $red->naziv; ?></option>
+         <?php endforeach; ?>
       </select>
     </div>
     
