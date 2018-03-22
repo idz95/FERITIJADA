@@ -1,4 +1,5 @@
 ﻿# -uedunova -pedunova --default_character_set=utf8 < d:\SQLWP16\skriptapp16.sql
+
 drop database if exists feritijada;
 create database feritijada character set utf8;
 
@@ -10,26 +11,28 @@ email varchar(50) not null,
 lozinka char(32) not null,
 ime varchar(50) not null,
 prezime varchar(50) not null,
-slika longblob not null,
 uloga varchar(20) not null
 );
 
 create table sport(
 sifra int not null primary key auto_increment,
 naziv varchar(50) not null,
+poziv varchar(50) not null,
 opis varchar(150) not null
 ); 
 
 create table utakmica(
 sifra int not null primary key auto_increment,
-domacin varchar(20) not null,
-gost varchar(20) not null,
 mjesto varchar(20) not null,
 pocetak datetime not null,
 trajanje int,
+domacin_score int,
+gost_score int,
+opis text(500),
 sport int not null,
-sudac int not null
- 
+sudac int not null,
+domacin int not null,
+gost int not null
 );
 
 create table sudac(
@@ -39,103 +42,73 @@ prezime varchar(20) not null,
 email varchar(50) not null,
 lozinka char(32) not null,
 mobitel varchar(20) not null,
-sport varchar(20) not null
+sport varchar(20) not null,
+uloga varchar(20)
 );
 
 create table fakultet(
 sifra int not null primary key auto_increment,
 naziv varchar(30) not null,
+puni_naziv varchar(50) not null,
+kontakt varchar(20) null,
 grad varchar(20) not null,
-drzava varchar(20) not null,
-domacin int not null,
-gost int not null,
-utakmica int not null
+drzava varchar(20) not null
 );
-
-create table dogadaj(
-sifra int not null primary key auto_increment,
-vrsta varchar(30) not null,
-opis varchar(200) not null,
-vrijeme datetime not null,
-utakmica int not null,
-fakultet int not null
-);
-
-
 
 alter table utakmica add foreign key (sport) references sport(sifra);
 alter table utakmica add foreign key (sudac) references sudac(sifra);
+alter table utakmica add foreign key (domacin) references fakultet(sifra);
+alter table utakmica add foreign key (gost) references fakultet(sifra);
 
-alter table dogadaj add foreign key (utakmica) references utakmica(sifra);
-alter table dogadaj add foreign key (fakultet) references fakultet(sifra);
-
-alter table fakultet add foreign key (domacin) references utakmica(sifra);
-alter table fakultet add foreign key (gost) references utakmica(sifra);
-
-
-
-insert into sport(sifra,naziv,opis) values 
-(null,'Nogomet','Nogometne utakmice'),
-(null,'Košarka','Kosarkasi'),
-(null,'Rukomet','Rukomet'),
-(null,'Odbojka','Odbojka'),
-(null,'Veslanje','Veslači');
-
-insert into operater (email,lozinka,ime,prezime,uloga,slika) values 
-('admin@hns.hr', md5('e'),'Admin','admin','admin', 'C:\xampp\htdocs\1_FERITIJADA\images\miro.jpg'),
-('sudac@hns.hr', md5('e'),'Miro','Kuzma','oper', 'C:\xampp\htdocs\1_FERITIJADA\images\miro.jpg');
+insert into sport(sifra,naziv, poziv, opis) values 
+(null,'Nogomet', 'nogomet','Nogometne utakmice'),
+(null,'Košarka','kosarka','Kosarkasi'),
+(null,'Rukomet','rukomet','Rukomet'),
+(null,'Odbojka','odbojka','Odbojka');
 
 
-
-insert into sudac(sifra,ime,prezime, email, lozinka, mobitel, sport) values
-(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet'),
-(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet'),
-(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka'),
-(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet'),
-(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet'),
-(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet'),
-(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka'),
-(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet'),
-(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet'),
-(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet'),
-(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka'),
-(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet'),
-(null,'Željko', 'Milić','zmilic@hns.hr', md5('e'), '095 234 4333', 'Odbojka')
+insert into sudac(sifra,ime,prezime, email, lozinka, mobitel, sport, uloga) values
+(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet', 'sudac'),
+(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet', 'sudac'),
+(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka', 'sudac'),
+(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet', 'sudac'),
+(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet', 'sudac'),
+(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet', 'sudac'),
+(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka', 'sudac'),
+(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet', 'sudac'),
+(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet', 'sudac'),
+(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet', 'sudac'),
+(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka', 'sudac'),
+(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet', 'sudac'),
+(null,'Željko', 'Milić','zmilic@hns.hr', md5('e'), '095 234 4333', 'Odbojka', 'sudac'),
+(null, 'Administrator', 'Admin', 'admin@hns.hr', md5('e'),'099 888 8888','Administrator','admin'),
+(null, 'Ivo', 'Admin', 'admin2@hns.hr', md5('e'),'099 888 8888','Administrator','admin')
 ;
 
-
-insert into utakmica(sifra,domacin, gost, mjesto, pocetak, trajanje, sport, sudac) values
-(null, 'FERIT', 'FER', 'Dvorana Gradski Vrt', '2017-12-10 02:00', 30, 1, 1),
-(null, 'RITEH', 'FESB', 'Srednjika', '2017-12-11 02:00', 30, 1, 2),
-(null, 'FER', 'FOI', 'Dvorana Gradski Vrt', '2017-12-11 02:00', 30, 1, 2),
-(null, 'FERIT', 'FESB', 'Poreč stadion', '2017-12-11 02:00', 30, 1, 2),
-(null, 'FERIT', 'FER', 'Dvorana Gradski Vrt', '2017-12-10 02:00', 30, 2, 1),
-(null, 'RITEH', 'FESB', 'Srednjika', '2017-12-11 02:00', 30, 2, 2),
-(null, 'FER', 'FOI', 'Dvorana Gradski Vrt', '2017-12-11 02:00', 30, 2, 2),
-(null, 'FERIT', 'FESB', 'Poreč stadion', '2017-12-11 02:00', 30, 2, 2),
-(null, 'FER', 'FSB', 'Dvorana Gradski Vrt', '2017-12-11 12:00', 30, 3, 2),
-(null, 'FERIT', 'FER', 'Dvorana Gradski Vrt', '2017-12-10 02:00', 30, 3, 1),
-(null, 'RITEH', 'FESB', 'Srednjika', '2017-12-11 02:00', 30, 3, 2),
-(null, 'FER', 'FOI', 'Dvorana Gradski Vrt', '2017-12-11 02:00', 30, 4, 2),
-(null, 'FERIT', 'FESB', 'Poreč stadion', '2017-12-11 02:00', 30, 4, 2)
-; 
-
-insert into fakultet(sifra, naziv, grad, drzava, domacin, gost) values
-	(null, 'FESB', 'Split', 'Hrvatska', 1, 2),
-	(null, 'FERIT', 'Osijek', 'Hrvatska', 1, 2),
-	(null, 'FER', 'Zagreb', 'Hrvatska', 1, 2),
-	(null, 'FTN', 'Novi Sad', 'Srbija', 1, 2),
-	(null, 'GFOS', 'Osijek', 'Hrvatska', 1, 2),
-	(null, 'PRAVOS', 'Osijek', 'Hrvatska', 1, 2),
-	(null, 'PMFZG', 'Zagreb', 'Hrvatska', 1, 2),
-	(null, 'TVZ', 'Zagreb', 'Hrvatska', 1, 2),
-	(null, 'SFSB', 'Slavonski Brod', 'Hrvatska', 1, 2),
-	(null, 'PMFOS', 'Osijek', 'Hrvatska', 1, 2),
-	(null, 'PMFRI', 'Rijeka', 'Hrvatska', 1, 2),
-	(null, 'ETFBG', 'Beograd', 'Srbija', 1, 2),
-	(null, 'FOI', 'Varaždin', 'Hrvatska', 1, 2)
+insert into fakultet(sifra, naziv, puni_naziv, kontakt, grad, drzava) values
+	(null, 'FESB', 'Fakultet Elektrotehnike, ...', '+385 95 888 8888','Split', 'Hrvatska'),
+	(null, 'FERIT', 'Fakultet Elektrotehnike, ...', '+385 95 888 8888', 'Osijek','Hrvatska'),
+	(null, 'FER', 'Fakultet Elektrotehnike, ...', '+385 95 888 8888','Zagreb', 'Hrvatska'),
+	(null, 'FTN', 'Fakultet Elektrotehnike, ...', '+385 95 888 8888','Novi Sad', 'Srbija'),
+	(null, 'GFOS', 'Fakultet Elektrotehnike, ...', '+385 95 888 8888','Osijek', 'Hrvatska'),
+	(null, 'PRAVOS', 'Fakultet Elektrotehnike, ...', '+385 95 888 8888','Osijek', 'Hrvatska'),
+	(null, 'PMFZG', 'Fakultet Elektrotehnike, ...', '+385 95 888 8888','Zagreb', 'Hrvatska'),
+	(null, 'TVZ', 'Fakultet Elektrotehnike, ...', '+385 95 888 8888', 'Zagreb','Hrvatska'),
+	(null, 'SFSB', 'Fakultet Elektrotehnike, ...','+385 95 888 8888', 'Split', 'Hrvatska'),
+	(null, 'PMFOS', 'Fakultet Elektrotehnike, ...','+385 95 888 8888', 'Osijek', 'Hrvatska'),
+	(null, 'PMFRI', 'Fakultet Elektrotehnike, ...','+385 95 888 8888', 'Rijeka', 'Hrvatska'),
+	(null, 'ETFBG', 'Fakultet Elektrotehnike, ...','+385 95 888 8888', 'Beograd', 'Srbija'),
+	(null, 'FOI', 'Fakultet Elektrotehnike, ...','+385 95 888 8888', 'varaždin', 'Hrvatska')
 	;
 
-insert into dogadaj(sifra, vrsta, opis, vrijeme, utakmica, fakultet) values
-	(null, 'Grupa', 'Utakmice po grupama', '2017-06-22', 1, 2),
-	(null, 'Knockout', 'Utakmica za prolazak dalje, u slučaju neriješenog ide se na produžetke', '2017-09-23', 2, 2 );
+insert into utakmica(sifra,mjesto, pocetak, trajanje, domacin_score, gost_score, opis, sport, sudac, domacin, gost) values 
+(null,'Osijek', '2017-09-22 02:00', 30, 2, 2, 'Utakmica napeta', 1, 1, 1, 2),
+(null,'Osijek', '2017-09-23 02:00', 30, 1, 1, 'Utakmica napeta', 1, 2, 3, 2),
+(null,'Osijek', '2017-09-23 02:00', 30, 2, 1, 'Utakmica napeta', 2, 3, 4, 1),
+(null,'Osijek', '2017-09-21 02:00', 30, 1, 2, 'Utakmica napeta', 2, 3, 1, 3),
+(null,'Osijek', '2017-09-21 02:00', 30, null, null, 'Utakmica napeta', 3, 3, 1, 2),
+(null,'Osijek', '2017-09-20 02:00', 30, 2, 2, 'Utakmica napeta', 3, 2, 1, 2),
+(null,'Osijek', '2017-09-22 02:00', 30, 2, 4, 'Utakmica napeta', 4, 1, 4, 7),
+(null,'Osijek', '2017-09-22 02:00', 30, 2, 2, 'Utakmica napeta', 4, 1, 2, 2),
+(null,'Osijek', '2017-09-22 02:00', 30, 2, 2, 'Utakmica napeta', 1, 2, 2, 5),
+(null,'Osijek', '2017-09-22 02:00', 30, 2, 2, 'Utakmica napeta', 2, 3, 4, 3);

@@ -38,17 +38,10 @@
 										stavkaIzbornika($putanjaAPP . "privatno/nadzornaPloca.php", "Nadzorna ploča"); }
 										
 									?>
-									<li class="has-dropdown">
+									
+									
+									<li>
 										<a href="<?php echo $putanjaAPP; ?>privatno/profil/profil.php">Moj profil</a>
-										<ul class="dropdown">
-											<?php 
-												stavkaIzbornika($putanjaAPP . "privatno/profil/profil.php", "Profil"); 
-												stavkaIzbornika($putanjaAPP . "privatno/profil/utakmice.php", "Moje utakmice"); 
-												stavkaIzbornika($putanjaAPP . "privatno/profil/racun.php", "Korisnički račun"); 
-												 
-						
-											?>
-										</ul>
 									</li>
 									
 									<?php endif;

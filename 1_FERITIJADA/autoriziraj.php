@@ -5,13 +5,15 @@ if(!isset($_POST["email"]) || !isset($_POST["lozinka"])){
 }
 
 include_once 'konfiguracija.php';
-$izraz=$veza->prepare("select * from operater where email=:email and lozinka=md5(:lozinka)");
+
+$izraz=$veza->prepare("select * from sudac where email=:email and lozinka=md5(:lozinka)");
 $izraz->execute($_POST);
 $o = $izraz->fetch(PDO::FETCH_OBJ);
 
+ 
 
 if($o==null){
-	header("location: login.php?neuspjelo&email=" . $_POST["email"]);
+	header("location: prijava.php?neuspjelo&email=" . $_POST["email"]);
 	exit;
 }
 
@@ -19,6 +21,8 @@ if($o==null){
 $_SESSION[$appID."autoriziran"]=$o;
 if($_SESSION[$appID."autoriziran"]->uloga==="admin"){
 	header("location: privatno/nadzornaPloca.php"); }
+if($_SESSION[$appID."autoriziran"]->uloga==="sudac"){
+	header("location: privatno/profil/profil.php?sifra="); }
 else {
-	header("location: privatno/profil/profil.php"); }
+	header("location: privatno/nadzornaPloca.php"); }
 	

@@ -495,7 +495,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-blog,
 #fh5co-counter,
 #fh5co-footer {
-  padding: 6em 3em;
+  padding: 1em 3em;
   clear: both;
 }
 @media screen and (max-width: 768px) {
@@ -577,12 +577,15 @@ h1, h2, h3, h4, h5, h6, figure {
   display: table-cell;
   vertical-align: middle;
   height: 270px;
+  width: 305px;
   background: #fff;
   opacity: 0;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
+
+
 .work .desc h3 {
   font-size: 14px;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
@@ -599,6 +602,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -webkit-transform: translate3d(0, 15px, 0);
   transform: translate3d(0, 15px, 0);
 }
+
 @media screen and (max-width: 768px) {
   .work .desc {
     opacity: 1;

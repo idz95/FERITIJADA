@@ -29,16 +29,14 @@ provjeraOvlasti();
 							<div class="list-group">
 								<a href="#" class="list-group-item active">Dodavanje komponenti! </a>
 								<a href="dodavanjeUtakmice.php" class="list-group-item">Sportska utakmica</a>
-								<a href="dodavanjeSuca.php" class="list-group-item">Dodavanje suca.</a>
-								<a href="dodavanjeFakulteta.php" class="list-group-item">Dodavanje Frakulteta</a>
 
 							</div>
 							
 							<div class="list-group">
 							<a href="#" class="list-group-item active">Upravljanje osobama! </a>
-							<a href="administracija.php" class="list-group-item">Administracija</a>
-							<a href="suci.php" class="list-group-item">Suci</a>
-							<a href="fakulteti.php" class="list-group-item">Fakulteti</a>
+							
+							<a href="suci/suci.php" class="list-group-item">Suci</a>
+							<a href="fakulteti/fakulteti.php" class="list-group-item">Fakulteti</a>
 
 						</div>
 

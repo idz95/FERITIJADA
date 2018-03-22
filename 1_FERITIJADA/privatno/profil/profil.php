@@ -1,5 +1,6 @@
 <?php include_once '../../konfiguracija.php'; 
 provjeraOvlasti();
+isset($_GET["sifra"]);
 ?>
 
 
@@ -24,17 +25,21 @@ provjeraOvlasti();
 					
 				</div>
 			</div>
+			
+					 
 			<div class="row">
+				
 				<div class="col-md-4 text-center animate-box">
 					<div class="list-group">
 						<a href="#" class="list-group-item active">Moj profil!</a>
-								<a href="utakmice.php" class="list-group-item">Moje utakmice</a>
+								<a href="utakmice.php?sifra=<?php   ?>" class="list-group-item">Moje utakmice</a>
 								<a href="racun.php" class="list-group-item">Postavke računa</a>
 								
-								
+							 
 					</div>
 				</div>
 				
+			
 				<div class="col-md-4 text-center animate-box">
 					<h4>Uloga: <?php echo $_SESSION[$appID."autoriziran"]->uloga; ?></h4>
 					<h4><?php echo $_SESSION[$appID."autoriziran"]->ime . " " . $_SESSION[$appID."autoriziran"]->prezime; ?></h4>

@@ -30,13 +30,14 @@
 						?>
 			
 			<div class="row">
-				<div class="col-md-4 text-center animate-box" style="alignment-adjust: central;">
-					<a href="sportovi/<?php echo $red->naziv  ?>.php" class="work" style="background-image: url(images/nogomet.jpg);">
+				<div class="col-md-4 text-center animate-box">
+					<a href="sportovi/<?php echo $red->poziv; ?>.php" class="work" style="background-image: url(images/nogomet.jpg);">
 						<div class="desc">
 							<h3><?php echo $red->naziv; ?></h3>
 							<span>Klikni za rezultate!</span>
 						</div>
 					</a>
+					
 				</div>
 				
 				 <?php endforeach; ?>

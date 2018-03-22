@@ -35,7 +35,15 @@
 						<tbody>
 							
 						<?php 
-						$izraz = $veza->prepare("select * from utakmica where sport=4");
+						$izraz = $veza->prepare("
+						select a.sifra, a.mjesto, a.pocetak,  a.domacin_score, a.gost_score, b.ime, b.prezime, c.naziv as domacin, d.naziv as gost
+						from utakmica a 
+						inner join sudac b on a.sudac=b.sifra
+						inner join fakultet c on a.domacin=c.sifra
+                        inner join fakultet d on a.gost=d.sifra
+						where a.sport=4
+						order by pocetak desc;
+						");
 						$izraz->execute();
 						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
 						foreach ($rezultati as $red):
@@ -44,12 +52,12 @@
 							<tr>
 								<td><?php echo $red->domacin ?></td>
 								<td><?php echo $red->gost; ?></td>
-								<td><?php echo $red->pocetak; ?></td>
+								<td><?php echo date("d.m.Y. G:i",strtotime($red->pocetak)); ?></td>
 								<td><?php echo $red->mjesto; ?></td>
-								<td><?php echo $red->sudac; ?></td>
+								<td><?php echo $red->ime . " " . $red->prezime; ?></td>
 								
 								<td>
-									
+									<?php echo $red->domacin_score . " : " . $red->gost_score;  ?>
 								</td>
 
 							</tr>

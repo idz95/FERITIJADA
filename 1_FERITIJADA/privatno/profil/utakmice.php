@@ -1,6 +1,12 @@
 <?php include_once '../../konfiguracija.php'; 
 provjeraOvlasti();
+
+
+isset($_GET["sifra"]);
+
 ?>
+
+
 
 
 <!DOCTYPE HTML>
@@ -22,138 +28,117 @@ provjeraOvlasti();
 		<ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#home">Suđene utakmice</a></li>
   <li><a data-toggle="tab" href="#menu1">Sljedeće utakmice</a></li>
-  <li><a data-toggle="tab" href="#menu2"></a></li>
+ 
 </ul>
 
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
-    <h3>Suđene utakmice</h3>
-					<table class="table">
+    
+    <h3>Prošle utakmice</h3>
+    <h5>Unesi rezultat ako to nisi uradio!</h5>
+		<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"></th>
+								
 								<th scope="col">Domaćin</th>
 								<th scope="col">Gost</th>
 								<th scope="col">Datum i vrijeme</th>
 								<th scope="col">Mjesto</th>
-								<th scope="col">Sudac</th>
+								<th scope="col">Sport</th>
 								<th scope="col">Rezultat</th>
+
 							</tr>
 						</thead>
 						<tbody>
+							
+						<?php 
+						$izraz = $veza->prepare("
+						
+						");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+							
 							<tr>
-								<th scope="row">1</th>
-								<td>FERIT</td>
-								<td>FER</td>
-								<td>1.1.2018. 20:00</td>
-								<td>Dvorana Vijuš</td>
-								<td>Ivo Ivić</td>
+								<td><?php echo $red->domacin ?></td>
+								<td><?php echo $red->gost; ?></td>
+								<td><?php echo date("d.m.Y. G:i",strtotime($red->pocetak)); ?></td>
+								<td><?php echo $red->mjesto; ?></td>
+								<td><?php echo $red->sport; ?></td>
+								
+								
+								<td>
+									<input type="text" />
+							
+								</td>
 
 							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>RITEH</td>
-								<td>FTN</td>
-								<td>1.1.2018. 22:00</td>
-								<td>Vanjski Teren</td>
-								<td>Marko Perić</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>FERIT</td>
-								<td>FER</td>
-								<td>1.1.2018. 20:00</td>
-								<td>Dvorana Vijuš</td>
-								<td>Ivo Ivić</td>
-							</tr>
-							<tr>
-								<th scope="row">4</th>
-								<td>FERIT</td>
-								<td>FER</td>
-								<td>1.1.2018. 20:00</td>
-								<td>Dvorana Vijuš</td>
-								<td>Ivo Ivić</td>
-							</tr>
-							<tr>
-								<th scope="row">5</th>
-								<td>FERIT</td>
-								<td>FER</td>
-								<td>1.1.2018. 20:00</td>
-								<td>Dvorana Vijuš</td>
-								<td>Ivo Ivić</td>
-							</tr>
+							<?php endforeach; ?>
 						</tbody>
 					</table>
-  </div>
-  <div id="menu1" class="tab-pane fade">
-  <h3>Sljedeće utakmice</h3>
-					<table class="table">
+					  </div>
+					
+					
+					
+
+  	<div id="menu1" class="tab-pane fade">
+    
+    <h3>Sljedeće utakmice</h3>
+		<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"></th>
+								
 								<th scope="col">Domaćin</th>
 								<th scope="col">Gost</th>
 								<th scope="col">Datum i vrijeme</th>
 								<th scope="col">Mjesto</th>
-								<th scope="col">Sudac</th>
+								<th scope="col">Sport</th>
 								<th scope="col">Rezultat</th>
+
 							</tr>
 						</thead>
 						<tbody>
+							
+						<?php 
+						$izraz = $veza->prepare("
+						select a.sifra, a.domacin, a.gost, a.mjesto, a.pocetak, b.ime, b.prezime 
+						from utakmica a inner join sudac b
+						on a.sudac=b.sifra
+						where a.sport=3
+						order by pocetak desc;
+						");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+							
 							<tr>
-								<th scope="row">1</th>
-								<td>FERIT</td>
-								<td>FER</td>
-								<td>1.1.2018. 20:00</td>
-								<td>Dvorana Vijuš</td>
-								<td>Ivo Ivić</td>
+								<td><?php echo $red->domacin ?></td>
+								<td><?php echo $red->gost; ?></td>
+								<td><?php echo date("d.m.Y. G:i",strtotime($red->pocetak)); ?></td>
+								<td><?php echo $red->mjesto; ?></td>
+								<td><?php echo $red->sport; ?></td>
+								
+								
+								<td>
+									<input type="text" />
+							
+								</td>
 
 							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>RITEH</td>
-								<td>FTN</td>
-								<td>1.1.2018. 22:00</td>
-								<td>Vanjski Teren</td>
-								<td>Marko Perić</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>FERIT</td>
-								<td>FER</td>
-								<td>1.1.2018. 20:00</td>
-								<td>Dvorana Vijuš</td>
-								<td>Ivo Ivić</td>
-							</tr>
-							<tr>
-								<th scope="row">4</th>
-								<td>FERIT</td>
-								<td>FER</td>
-								<td>1.1.2018. 20:00</td>
-								<td>Dvorana Vijuš</td>
-								<td>Ivo Ivić</td>
-							</tr>
-							<tr>
-								<th scope="row">5</th>
-								<td>FERIT</td>
-								<td>FER</td>
-								<td>1.1.2018. 20:00</td>
-								<td>Dvorana Vijuš</td>
-								<td>Ivo Ivić</td>
-							</tr>
+							<?php endforeach; ?>
 						</tbody>
 					</table>
-  </div>
+					  </div>
+					
+			</div>
+										
 
-</div>
 					
 
-					
-
-					<br />
-					<br />
-
-				</div>
+				
+				
 
 		
 		
