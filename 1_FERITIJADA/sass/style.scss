@@ -22,7 +22,7 @@ $brand-overlay-color: #4c4a8a;
 $brand-bg-color: $brand-white;
 
 $input-border-focus:  $brand-primary !default;
-$form-group-margin-bottom:       30px !default;
+$form-group-margin-bottom:       5px !default;
 
 
 
@@ -957,7 +957,7 @@ input[type="text"] {
 	height: 50px;
 }
 .form-group {
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 	.btn-modify{
 		font-family: $font-secondary;
 		text-transform: uppercase;

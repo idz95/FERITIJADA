@@ -31,7 +31,7 @@
 			
 			<div class="row">
 				<div class="col-md-4 text-center animate-box">
-					<a href="sportovi/<?php echo $red->poziv; ?>.php" class="work" style="background-image: url(images/nogomet.jpg);">
+					<a href="sportovi/<?php echo $red->poziv; ?>.php" class="work" style=" width: 315px; height: 270px; background-image: url(images/<?php echo $red->poziv; ?>.jpg);">
 						<div class="desc">
 							<h3><?php echo $red->naziv; ?></h3>
 							<span>Klikni za rezultate!</span>

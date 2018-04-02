@@ -26,21 +26,32 @@ provjeraOvlasti();
 			</div>
 			<div class="row">
 						<div class="col-md-4 text-center animate-box">
-							<div class="list-group">
-								<a href="#" class="list-group-item active">Dodavanje komponenti! </a>
-								<a href="dodavanjeUtakmice.php" class="list-group-item">Sportska utakmica</a>
-
-							</div>
 							
-							<div class="list-group">
-							<a href="#" class="list-group-item active">Upravljanje osobama! </a>
+								<a href="#" class="list-group-item active">Dodavanje komponenti! </a>
+								<a href="upravljanje/dodavanjeUtakmice.php" class="list-group-item">Sportska utakmica</a>
+								<a href="fakulteti/dodaj.php" class="list-group-item">Fakultet</a>
+								<a href="suci/dodaj.php" class="list-group-item">Sudac</a>
+
+							
+							
+							
+
+						</div>
+						<div class="col-md-4 text-center animate-box">
+						
+							<a href="#" class="list-group-item active">UPRAVLJANJE! </a>
 							
 							<a href="suci/suci.php" class="list-group-item">Suci</a>
 							<a href="fakulteti/fakulteti.php" class="list-group-item">Fakulteti</a>
 
-						</div>
 
+						
 						</div>
+						
+						<div class="col-md-4 text-center animate-box">
+							<a href="upravljanje/eraDijagram.php" class="list-group-item">ERA dijagram</a>
+						</div>
+							
 
 					</div>
 			
@@ -54,11 +65,11 @@ provjeraOvlasti();
 
 		
 		
-
+<?php include_once "../template/podnozje.php"; ?>
 		
 	</div><!-- END container-wrap -->
 
-	<?php include_once "../template/podnozje.php"; ?>
+	
 	</div>
 
 	<?php include_once "../template/skripte.php"; ?>

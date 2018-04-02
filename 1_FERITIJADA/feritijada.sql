@@ -1,4 +1,14 @@
-﻿# -uedunova -pedunova --default_character_set=utf8 < d:\SQLWP16\skriptapp16.sql
+﻿# sipavanje baze
+# c:\xampp\mysql\bin>mysql.exe -uedunova -pedunova --default_character_set=utf8 < C:\xampp\htdocs\1_FERITIJADA\feritijada.sql
+
+
+drop database if exists edunovapp16;
+create database edunovapp16 character set utf8 collate utf8_croatian_ci;
+
+#za byethost
+#alter database character set utf8 collate utf8_croatian_ci;
+
+
 
 drop database if exists feritijada;
 create database feritijada character set utf8;
@@ -60,6 +70,11 @@ alter table utakmica add foreign key (sudac) references sudac(sifra);
 alter table utakmica add foreign key (domacin) references fakultet(sifra);
 alter table utakmica add foreign key (gost) references fakultet(sifra);
 
+insert into operater(sifra,ime,prezime, email, lozinka, uloga) values
+(null, 'Administrator', 'Admin', 'admin@hns.hr', md5('e'),'admin'),
+(null, 'Ivo', 'Admin', 'admin2@hns.hr', md5('e'),'admin');
+
+
 insert into sport(sifra,naziv, poziv, opis) values 
 (null,'Nogomet', 'nogomet','Nogometne utakmice'),
 (null,'Košarka','kosarka','Kosarkasi'),
@@ -72,14 +87,7 @@ insert into sudac(sifra,ime,prezime, email, lozinka, mobitel, sport, uloga) valu
 (null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet', 'sudac'),
 (null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka', 'sudac'),
 (null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet', 'sudac'),
-(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet', 'sudac'),
-(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet', 'sudac'),
-(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka', 'sudac'),
-(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet', 'sudac'),
-(null,'Miro', 'Đurić','mduric@hns.hr', md5('a'), '095 234 4333', 'Nogomet', 'sudac'),
-(null,'Karlo', 'Klarić', 'kklaric@hns.hr', md5('b'), '095 234 4333', 'Rukomet', 'sudac'),
-(null,'Karlo', 'Marić','kmaric@hns.hr', md5('c'), '095 234 4333', 'Košarka', 'sudac'),
-(null,'Mirko', 'Kokot','mkokot@hns.hr', md5('d'), '095 234 4333', 'Nogomet', 'sudac'),
+(null,'Mirko', 'Rokić','mrokic@hns.hr', md5('d'), '095 234 4333', 'Nogomet', 'sudac'),
 (null,'Željko', 'Milić','zmilic@hns.hr', md5('e'), '095 234 4333', 'Odbojka', 'sudac'),
 (null, 'Administrator', 'Admin', 'admin@hns.hr', md5('e'),'099 888 8888','Administrator','admin'),
 (null, 'Ivo', 'Admin', 'admin2@hns.hr', md5('e'),'099 888 8888','Administrator','admin')

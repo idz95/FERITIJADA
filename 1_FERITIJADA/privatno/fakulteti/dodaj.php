@@ -124,16 +124,6 @@ if($_POST){
 						  <?php endif; ?>
 		     </div>
 		     
-		    
-		     
-		      
-		     
-		      
-		     
-		    
-		    
-		     
-		     
 		     </div>  
 		      <p><input type="submit" class="btn btn-primary btn-modify button expanded" value="Dodaj Fakultet"></input></p>
 		</form>			
@@ -145,7 +135,22 @@ if($_POST){
 	</div>
 
 	<?php include_once "../../template/skripte.php"; ?>
+	<script>
+		
+		<?php if(isset($greska["naziv"])):?>	
+    		setTimeout(function(){ $("#naziv").focus(); },1000);	
+    <?php elseif(isset($greska["puni_naziv"])):?>	
+	    		setTimeout(function(){ $("#puni_naziv").focus(); },1000);	
+	<?php elseif(isset($greska["kontakt"])):?>	
+	    		setTimeout(function(){ $("#kontakt").focus(); },1000);	
+	<?php elseif(isset($greska["drzava"])):?>	
+	    		setTimeout(function(){ $("#drzava").focus(); },1000);	
+	<?php elseif(isset($greska["grad"])):?>	
+	    		setTimeout(function(){ $("#grad").focus(); },1000);	
 
+	<?php endif; ?>
+		
+	</script>
 	</body>
 
 </html>

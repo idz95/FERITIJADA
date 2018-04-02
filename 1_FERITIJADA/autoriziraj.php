@@ -22,7 +22,7 @@ $_SESSION[$appID."autoriziran"]=$o;
 if($_SESSION[$appID."autoriziran"]->uloga==="admin"){
 	header("location: privatno/nadzornaPloca.php"); }
 if($_SESSION[$appID."autoriziran"]->uloga==="sudac"){
-	header("location: privatno/profil/profil.php?sifra="); }
+	header("location: privatno/profil/profil.php"); }
 else {
 	header("location: privatno/nadzornaPloca.php"); }
 	

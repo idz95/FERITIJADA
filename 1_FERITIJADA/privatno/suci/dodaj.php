@@ -14,13 +14,8 @@ if($_POST){
 		$izraz->execute($_POST);
 		header("location: suci.php");
 	}
-
 }
-
-
 ?>
-
-
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -79,13 +74,13 @@ if($_POST){
 		     <div class="form-group col-md-4">
 		     	<?php if(!isset($greska["email"])): ?>
 						  <label>Email adresa
-						    <input class="form-control"  type="text" id="email" name="email" placeholder="primjer@hns.hr"
+						    <input class="form-control"  type="email" id="email" name="email" placeholder="primjer@hns.hr"
 						    value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ""; ?>">
 						  </label>
 						  <?php else: ?>
 						   <label class="is-invalid-label">
 						    Email adresa
-						    <input type="text"  id="email" name="email" class="is-invalid-input"  aria-invalid aria-describedby="uuid"
+						    <input type="email"  id="email" name="email" class="is-invalid-input"  aria-invalid aria-describedby="uuid"
 						    value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ""; ?>" >
 						    <span class="form-error is-visible" id="uuid"><?php echo $greska["email"]; ?></span>
 						  </label>
@@ -130,7 +125,7 @@ if($_POST){
 		    
 		     
 		     <div class="form-group col-md-4">
-		     <label for="sport">Sport</label>
+		     <label for="sport">Sport
 				  <select class="form-control" name="sport" id="sport">
 						  	<?php 		
 									$izraz = $veza->prepare("select * from sport order by naziv");
@@ -147,6 +142,7 @@ if($_POST){
 								   value="<?php echo $red->naziv ?>"><?php echo $red->naziv ?></option>  
 						<?php endforeach;?>
 				  </select>
+				  </label>
 		      </div>   
 		     </div>  
 		      <p><input type="submit" class="btn btn-primary btn-modify button expanded" value="Dodaj suca"></input></p>
@@ -159,7 +155,22 @@ if($_POST){
 	</div>
 
 	<?php include_once "../../template/skripte.php"; ?>
+	<script>
+		
+		<?php if(isset($greska["ime"])):?>	
+    		setTimeout(function(){ $("#ime").focus(); },1000);	
+    <?php elseif(isset($greska["prezime"])):?>	
+	    		setTimeout(function(){ $("#prezime").focus(); },1000);	
+	<?php elseif(isset($greska["mobitel"])):?>	
+	    		setTimeout(function(){ $("#mobitel").focus(); },1000);	
+	<?php elseif(isset($greska["email"])):?>	
+	    		setTimeout(function(){ $("#email").focus(); },1000);	
+	<?php elseif(isset($greska["lozinka"])):?>	
+	    		setTimeout(function(){ $("#lozinka").focus(); },1000);	
 
+	<?php endif; ?>
+		
+	</script>
 	</body>
 
 </html>

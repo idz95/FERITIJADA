@@ -81,7 +81,7 @@ provjeraOvlasti();
 								
 								<td>
 									<a href="promjena.php?sifra=<?php echo $red->sifra ?>"><i class="far fa-edit fa-2x"></i></a>
-									<a href="brisanje.php?sifra=<?php echo $red->sifra ?>"><i class="far fa-trash-alt fa-2x"></i></a> 
+									<a onclick="return confirm('Sigurno obrisati?');" href="brisanje.php?sifra=<?php echo $red->sifra ?>"><i class="far fa-trash-alt fa-2x"></i></a> 
 								</td>
 
 							</tr>
@@ -92,12 +92,6 @@ provjeraOvlasti();
 		
 		</div>
 			
-			
-
-		
-		
-
-		
 	</div><!-- END container-wrap -->
 
 	<?php include_once "../../template/podnozje.php"; ?>
