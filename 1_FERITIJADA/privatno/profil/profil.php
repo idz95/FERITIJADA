@@ -50,7 +50,7 @@ $izraz->execute(array(
 						<?php  if($_SESSION[$appID."autoriziran"]->uloga==="sudac"): ?>
 						<a href="utakmice.php" class="list-group-item">Moje utakmice</a>
 						<?php  endif; ?>
-						<a href="racun.php" class="list-group-item">Postavke računa</a>
+						<a href="postavkeRacuna.php?sifra=<?php echo $_SESSION[$appID."autoriziran"]->sifra ?>" class="list-group-item">Postavke računa</a>
 						<a href="promijeniSliku.php?sifra=<?php echo $_SESSION[$appID."autoriziran"]->sifra ?>" class="list-group-item">Promijeni sliku</a>
 								
 							 
@@ -98,7 +98,7 @@ $izraz->execute(array(
 					
 					<div class="panel panel-info">
 						<div class="panel-heading" style="padding: 5px;">
-							<h3 class="panel-title"><label for="passwordConfirm" class="control-label panel-title">Sport i broj suđenih utakmica</label></h3>
+							<h3 class="panel-title"><label for="passwordConfirm" class="control-label panel-title">Sport</label></h3>
 						</div>
 						
 						

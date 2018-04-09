@@ -1,3 +1,29 @@
+.modalNaslov{
+	font-family: Courier;
+	font-size: 35px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.modalUpit{
+	font-family: Courier;
+	font-size: 20px;
+}
+.modalOdgovor{
+	font-family: Courier;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.indexPodnaslov{
+	padding-top: 15px;
+	font-size: 25px;
+	font-family: Courier;
+	font-weight: bold;
+}
+.indexTekst{
+	 }
+
 .modal-header {
 	
     border-bottom: 0px solid;
@@ -1502,7 +1528,7 @@ input[type="text"] {
 
 
 .log-in-form {
-  border: 1px solid #cacaca;
+  
   padding: 1rem;
   border-radius: 0;
 }

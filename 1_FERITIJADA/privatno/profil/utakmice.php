@@ -6,7 +6,7 @@ $izraz->execute(array(
 	
 
 $id=$_SESSION[$appID."autoriziran"]->sifra;
-
+$date=date("Y-m-d H:i");
 ?>
 
 
@@ -27,8 +27,10 @@ $id=$_SESSION[$appID."autoriziran"]->sifra;
 		<div id="fh5co-work">
 		
 	<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home">Suđene utakmice</a></li>
-  <li><a data-toggle="tab" href="#menu1">Sljedeće utakmice</a></li>
+  <li class="active"><a data-toggle="tab" href="#home">Unos rezultata</a></li>
+  <li><a data-toggle="tab" href="#menu1">Iduće utakmice</a></li>
+   <li><a data-toggle="tab" href="#menu2">Suđene utakmice</a></li>
+
  
 </ul>
 
@@ -36,7 +38,7 @@ $id=$_SESSION[$appID."autoriziran"]->sifra;
   <div id="home" class="tab-pane fade in active">
     
     <h3>Prošle utakmice</h3>
-    <h5>Unesi rezultat ako to nisi uradio!</h5>
+    <h5>Unesi rezultat ako to nisi uradio!</h5> 
 		<table class="table">
 						<thead>
 							<tr>
@@ -60,7 +62,7 @@ $id=$_SESSION[$appID."autoriziran"]->sifra;
                         inner join sport c on a.sport=c.sifra
                         inner join fakultet d on a.domacin=d.sifra
                         inner join fakultet e on a.gost=e.sifra
-						where b.sifra=$id and a.domacin_score is null
+						where b.sifra=$id and a.domacin_score is null  and pocetak < '$date'
 						order by pocetak desc;
 						");
 						$izraz->execute();
@@ -93,9 +95,9 @@ $id=$_SESSION[$appID."autoriziran"]->sifra;
 					
 					
 
-  	<div id="menu1" class="tab-pane fade">
+  	<div id="menu2" class="tab-pane fade">
     
-    <h3>Sljedeće utakmice</h3>
+    <h3>Suđene utakmice</h3>
 		<table class="table">
 						<thead>
 							<tr>
@@ -105,6 +107,7 @@ $id=$_SESSION[$appID."autoriziran"]->sifra;
 								<th scope="col">Datum i vrijeme</th>
 								<th scope="col">Mjesto</th>
 								<th scope="col">Sport</th>
+								<th scope="col">Rezultat</th>
 
 							</tr>
 						</thead>
@@ -112,13 +115,64 @@ $id=$_SESSION[$appID."autoriziran"]->sifra;
 							
 						<?php 
 						$izraz = $veza->prepare("
-						select a.sifra, a.mjesto, a.domacin_score, a.pocetak, b.sifra,b.ime, b.prezime, c.naziv, d.naziv as domacin, e.naziv as gost 
+						select a.sifra, a.mjesto, a.domacin_score, a.gost_score, a.pocetak, b.sifra,b.ime, b.prezime, c.naziv, d.naziv as domacin, e.naziv as gost 
 						from utakmica a 
                         inner join sudac b on a.sudac=b.sifra
                         inner join sport c on a.sport=c.sifra
                         inner join fakultet d on a.domacin=d.sifra
                         inner join fakultet e on a.gost=e.sifra
-						where b.sifra=$id
+						where b.sifra=$id and pocetak < '$date' and domacin_score is not null
+						order by pocetak desc;
+						");
+						$izraz->execute();
+						$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+						foreach ($rezultati as $red):
+						?>
+							
+							<tr>
+								<td><?php echo $red->domacin ?></td>
+								<td><?php echo $red->gost; ?></td>
+								<td><?php echo date("d.m.Y. G:i",strtotime($red->pocetak)); ?></td>
+								<td><?php echo $red->mjesto; ?></td>
+								<td><?php echo $red->naziv; ?></td>
+								<td><?php echo $red->domacin_score . " : " . $red->gost_score; ?></td>
+								
+
+							</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+			</div>
+			
+			
+			
+	<div id="menu1" class="tab-pane fade">
+    
+    <h3>Buduće utakmice utakmice</h3>
+		<table class="table">
+						<thead>
+							<tr>
+								
+								<th scope="col">Domaćin</th>
+								<th scope="col">Gost</th>
+								<th scope="col">Datum i vrijeme</th>
+								<th scope="col">Mjesto</th>
+								<th scope="col">Sport</th>
+								
+
+							</tr>
+						</thead>
+						<tbody>
+							
+						<?php 
+						$izraz = $veza->prepare("
+						select a.sifra, a.mjesto, a.domacin_score, a.gost_score, a.pocetak, b.sifra,b.ime, b.prezime, c.naziv, d.naziv as domacin, e.naziv as gost 
+						from utakmica a 
+                        inner join sudac b on a.sudac=b.sifra
+                        inner join sport c on a.sport=c.sifra
+                        inner join fakultet d on a.domacin=d.sifra
+                        inner join fakultet e on a.gost=e.sifra
+						where b.sifra=$id and pocetak > '$date' and domacin_score is null
 						order by pocetak desc;
 						");
 						$izraz->execute();
@@ -133,12 +187,16 @@ $id=$_SESSION[$appID."autoriziran"]->sifra;
 								<td><?php echo $red->mjesto; ?></td>
 								<td><?php echo $red->naziv; ?></td>
 								
+								
 
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
 					</table>
-					  </div>
+			</div>
+			
+			
+			
 					
 			</div>
 
@@ -181,7 +239,7 @@ $id=$_SESSION[$appID."autoriziran"]->sifra;
 				 
 				  <h4 id="opis" class="modal-title" style="text-align: center;">OPIS I NAPOMENE</h4>
 				  <br>
-				  <input type="text" name="opis" id="opisUtakmice">
+				  <textarea name="opis" id="opisUtakmice" style="height: 200px;"></textarea> 
 						
         	</div>	
         	

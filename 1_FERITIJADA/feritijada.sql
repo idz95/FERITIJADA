@@ -71,7 +71,7 @@ alter table utakmica add foreign key (domacin) references fakultet(sifra);
 alter table utakmica add foreign key (gost) references fakultet(sifra);
 
 insert into operater(sifra,ime,prezime, email, lozinka, uloga) values
-(null, 'Administrator', 'Admin', 'admin@hns.hr', md5('e'),'admin'),
+(null, 'Administrator', 'Ivica', 'admin@hns.hr', md5('e'),'admin'),
 (null, 'Ivo', 'Admin', 'admin2@hns.hr', md5('e'),'admin');
 
 
@@ -110,13 +110,13 @@ insert into fakultet(sifra, naziv, puni_naziv, kontakt, grad, drzava) values
 	;
 
 insert into utakmica(sifra,mjesto, pocetak, trajanje, domacin_score, gost_score, opis, sport, sudac, domacin, gost) values 
-(null,'Osijek', '2017-09-22 02:00', 30, 2, 2, 'Utakmica napeta', 1, 1, 1, 2),
-(null,'Osijek', '2017-09-23 02:00', 30, 1, 1, 'Utakmica napeta', 1, 2, 3, 2),
-(null,'Osijek', '2017-09-23 02:00', 30, 2, 1, 'Utakmica napeta', 2, 3, 4, 1),
-(null,'Osijek', '2017-09-21 02:00', 30, 1, 2, 'Utakmica napeta', 2, 3, 1, 3),
-(null,'Osijek', '2017-09-21 02:00', 30, null, null, 'Utakmica napeta', 3, 3, 1, 2),
-(null,'Osijek', '2017-09-20 02:00', 30, 2, 2, 'Utakmica napeta', 3, 2, 1, 2),
-(null,'Osijek', '2017-09-22 02:00', 30, 2, 4, 'Utakmica napeta', 4, 1, 4, 7),
-(null,'Osijek', '2017-09-22 02:00', 30, 2, 2, 'Utakmica napeta', 4, 1, 2, 2),
-(null,'Osijek', '2017-09-22 02:00', 30, 2, 2, 'Utakmica napeta', 1, 2, 2, 5),
-(null,'Osijek', '2017-09-22 02:00', 30, 2, 2, 'Utakmica napeta', 2, 3, 4, 3);
+(null,'Osijek', '2018-04-09 14:00', 30, 2, 2, 'Utakmica veoma zanimljiva. Domaćin bolji, ali ipak nedovoljno dobar kako bi pobjedio. Gosti su se izvukli s neriješenim rezultatom', 1, 1, 1, 2),
+(null,'Osijek', '2018-04-09 14:00', 30, 3, 1, 'Utakmica lijepa za gledati s lijepim zgodicima. Domaćin uvjerljiv i siguran. Golman gostujućih nije siguran. U 10. minuti isključen trener domaćih zbog lošeg ponašanja.', 1, 2, 3, 2),
+(null,'Osijek', '2018-04-08 14:00', 30, 43, 39, 'Utakmica veoma zanimljiva. Domaćin bolji, ali ipak nedovoljno dobar kako bi pobjedio. Gosti su se izvukli s neriješenim rezultatom', 2, 3, 4, 1),
+(null,'Osijek', '2018-04-08 12:00', 30, 55, 57, 'Utakmica lijepa za gledati s lijepim zgodicima. Domaćin uvjerljiv i siguran. Golman gostujućih nije siguran. U 10. minuti isključen trener domaćih zbog lošeg ponašanja.', 2, 3, 1, 3),
+(null,'Osijek', '2018-04-09 21:00', 30, null, null, null, 3, 1, 1, 2),
+(null,'Osijek', '2018-04-09 13:00', 30, 21, 20, 'Utakmica veoma zanimljiva. Domaćin bolji, ali ipak nedovoljno dobar kako bi pobjedio. Gosti su se izvukli s neriješenim rezultatom', 3, 2, 1, 2),
+(null,'Osijek', '2018-04-09 13:00', 30, 25, 22, 'Utakmica lijepa za gledati s lijepim zgodicima. Domaćin uvjerljiv i siguran. Golman gostujućih nije siguran. U 10. minuti isključen trener domaćih zbog lošeg ponašanja.', 4, 1, 4, 7),
+(null,'Osijek', '2018-04-07 13:00', 30, 21, 25, 'Utakmica napeta', 4, 1, 2, 2),
+(null,'Osijek', '2018-04-09 12:00', 30, 1, 0, 'Utakmica lijepa za gledati s lijepim zgodicima. Domaćin uvjerljiv i siguran. Golman gostujućih nije siguran. U 10. minuti isključen trener domaćih zbog lošeg ponašanja.', 1, 2, 2, 5),
+(null,'Osijek', '2018-04-09 12:00', 30, 33, 32, 'Utakmica napeta', 2, 3, 4, 3);

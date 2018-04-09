@@ -18,7 +18,7 @@
 	<div class="container-wrap">
 	
 			<div id="fh5co-work">
-		<h3>Utakmice rukomet za datum 1.1.2018.</h3>
+		<h3>Utakmice rukomet</h3>
 		<table class="table">
 						<thead>
 							<tr>

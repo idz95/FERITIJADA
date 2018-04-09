@@ -9,6 +9,7 @@ if($_SERVER["SERVER_NAME"]==="localhost"){
 }else{
 	$putanjaAPP = "/1_FERITIJADA/";
 }
+$naslovAPP="FERITIJADA";
 $appID="FERITIJADA";
 $dev=true;
 $brojRezultataPoStranici=10;

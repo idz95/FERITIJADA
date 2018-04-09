@@ -1,0 +1,32 @@
+<form action="mail.php"  onsubmit="return validateForm();" method="post">
+    <div class="row collapse">
+        <div class="large-2 columns">
+            <label class="inline">First Name</label>
+        </div>
+        <div class="large-10 columns">
+            <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+        </div>
+    </div>
+
+    <div class="row collapse">
+        <div class="large-2 columns">
+            <label class="inline">Last Name</label>
+        </div>
+        <div class="large-10 columns">
+            <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+        </div>
+    </div>
+
+    <div class="row collapse">
+        <div class="large-2 columns">
+            <label class="inline" > Your Email</label>
+        </div>
+        <div class="large-10 columns">
+            <input type="text" name="email" id="yourEmail" placeholder="jane@smithco.com" required>
+        </div>
+    </div>
+    <label>Your Message</label>
+    <textarea rows="8" name="message" required></textarea>
+    <br><br>
+    <button type="submit" class="radius button">Submit</button>
+</form>

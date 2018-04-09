@@ -1,35 +1,49 @@
 <div class="modal-content">
         <div class="modal-header">
-          <h2 id="detalji" style="font-size: 40px; text-align: center; border: 1px solid gray;padding: 5px;border-radius: 5px;"></h2>
+        
+          <div class="panel panel-info">
+						<div class="panel-heading" style="padding: 5px;">
+							<h3 id="detalji" class="modalNaslov"><label for="passwordConfirm" class="control-label panel-title"></label></h3>
+						</div>
+			</div>
         </div>
         
         <div class="modal-body" >
-        	<div class="col-md-4" style="text-align: center;">
-        		<h4 class="modal-title">Sport:</h4>
-        		<h4 class="modal-title">Utakmica između:</h4>
-        		<h4 class="modal-title">Rezultat:</h4>
-        		<h4 class="modal-title">Sudac:</h4>
+        	<div class="col-md-4" style="text-align: right;">
+        		<h4 class="modalUpit">Sport:</h4>
+        		<h4 class="modalUpit">Utakmica između:</h4>
+        		<h4 class="modalUpit">Rezultat:</h4>
+        		<h4 class="modalUpit">Sudac:</h4>
         	</div>
         	
-        	<div class="col-md-8" style="text-align: center;">
-        		<h4 id="sport" class="modal-title"></h4>
-        		<h4 id="utakmicaIzmedu" class="modal-title"></h4>
-        		<h4 id="rezultat" class="modal-title"></h4>
-        		<h4 id="sudac" class="modal-title"></h4>
+        	<div class="col-md-8" style="text-align: left;">
+        		<h4 id="sport" class="modalOdgovor"></h4>
+        		<h4 id="utakmicaIzmedu" class="modalOdgovor"></h4>
+        		<h4 id="rezultat" class="modalOdgovor"></h4>
+        		<h4 id="sudac" class="modalOdgovor"></h4>
         	</div>
         	
         	
-        	<div class="col-md-4" style="text-align: center;">
-        		<h4 id="datum" class="modal-title"></h4>
-        		<h4 id="pocetak" class="modal-title"></h4>
-        		<h4 id="trajanje" class="modal-title"></h4>
+        	<div class="col-md-4" style="text-align: right;">
+        		<h4 id="datum" class="modalOdgovor"></h4>
+        		<h4 id="pocetak" class="modalOdgovor"></h4>
+        		<h4 id="trajanje" class="modalOdgovor"></h4>
         		
         	</div>
-        	<div class="col-md-8" style="border: 1px solid gray;padding: 5px;border-radius: 5px;">
-        		<h4 class="modal-title">OPIS UTAKMICE:</h4>
-        		<p id="opis" style="font-family: sans-serif; font-size: 1.2em; font-weight: bold; "></p>
+        	<div class="col-md-8">
         		
-        		</div>
+        		<div class="panel panel-info">
+						<div class="panel-heading" style="padding: 5px;">
+							<h3 class="panel-title"><label for="passwordConfirm" class="control-label panel-title">OPIS UTAKMICE</label></h3>
+						</div>
+						<div class="panel-body" style="padding: 5px;">
+							<div class="form-group" style="margin-bottom: 2px; font-size: 20px;">
+								<p id="opis"></p>
+							</div>
+						</div>
+					</div>
+        		
+        	</div>
         </div>
         
         <div class="modal-footer">

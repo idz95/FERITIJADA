@@ -1,20 +1,16 @@
 <nav class="fh5co-nav" role="navigation">
-		<div class="container-wrap"">
+		<div class="container-wrap">
 			<div class="top-menu">
 				<div class="row">
 					<div class="col-xs-2">
-						<div id="fh5co-logo"><a href="<?php echo $putanjaAPP; ?>index.php"">FERITijada</a></div>
+						<div id="fh5co-logo"><a href="<?php echo $putanjaAPP; ?>index.php" style="color: #66D37E;">FERITijada</a></div>
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
 							<?php //poziv funkcije koja je definirana u /Edunova05/funkcije.php:4
 							stavkaIzbornika($putanjaAPP . "index.php", "Naslovnica");
  							?>
- 						
-      							
-      							
-      							
-      							
+
 						      		
 									<li class="has-dropdown">
 										<a href="<?php echo $putanjaAPP; ?>sportovi.php">Sportovi</a>

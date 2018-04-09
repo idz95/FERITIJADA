@@ -30,20 +30,21 @@
 					</ul>
 				</div>
 				<div class="col-md-7 col-md-push-1 animate-box">
+					<form name="contactform" method="post" action="send_form_email.php">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Ime">
+								<input type="text" name="ime" class="form-control" placeholder="Ime i prezime">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Email">
+								<input type="text" name="email_from" class="form-control" placeholder="Email">
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Poruka"></textarea>
+								<textarea name="poruka" class="form-control" id="" cols="30" rows="7" placeholder="Poruka"></textarea>
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -52,6 +53,7 @@
 							</div>
 						</div>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>

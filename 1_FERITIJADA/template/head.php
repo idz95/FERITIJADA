@@ -21,15 +21,12 @@ Facebook: 		https://www.facebook.com/fh5co
 -->
 
 <!-- Facebook and Twitter integration -->
-<meta property="og:title" content=""/>
-<meta property="og:image" content=""/>
-<meta property="og:url" content=""/>
-<meta property="og:site_name" content=""/>
-<meta property="og:description" content=""/>
-<meta name="twitter:title" content="" />
-<meta name="twitter:image" content="" />
-<meta name="twitter:url" content="" />
-<meta name="twitter:card" content="" />
+<meta property="og:title" content="<?php echo $naslovAPP; ?>" />
+<meta property="og:type" content="application" />
+<meta property="og:url" content="http://idz95.byethost3.com/1_FERITIJADA" />
+<meta property="og:image" content="http://idz95.byethost3.com/1_FERITIJADA/images/odbojka.png" />
+<meta property="og:description" content="Aplikacija za praćenje sportskih rezultata na FERITIJADI!" />
+
 
 <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">

@@ -14,8 +14,8 @@
 		
 		<div class="row animate-box">
 		<div id="log-in-div">
-		<div class="col-sm-4"></div>
-		<div class="col-sm-4">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6 text-center">
 			<form class="log-in-form" action="autoriziraj.php" method="post" style="alignment-adjust: center;">
 			  <h4 class="text-center">Prijava za suce</h4>
 			  <label>Nadimak ili email
@@ -34,7 +34,7 @@
 			    <input type="password" name="lozinka" placeholder="sudac" value="<?php echo $dev ? "e" : "";  ?>">
 			  </label>
 			  
-			  <p><input type="submit" class="button expanded" value="Prijava"></input></p>
+			  <p><input type="submit" class="success button expanded" value="Prijava"></input></p>
 			  <?php if(isset($_GET["neuspjelo"])){
 				  	echo "Netočan email ili lozinka";
 				  } ?>
